@@ -35,7 +35,7 @@ export default new Vuex.Store({
         },
         setPageSize(state, size) {
             state.pageSize = size;
-            state.setCurrentPage = 1;
+            state.currentPage = 1;
         }
     }
 });
