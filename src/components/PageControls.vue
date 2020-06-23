@@ -11,7 +11,7 @@
             <div class="btn-group mx-2">
                 <button v-for="i in pageNumbers" v-bind:key="i" 
                     class="btn" 
-                    v-bind:class="{ 'btn-primary': i == currentPage }"
+                    v-bind:class="i == currentPage ? 'btn-primary' : 'btn-secondary'"
                     v-on:click="setCurrentPage(i)">
                     {{ i }}
                 </button>
