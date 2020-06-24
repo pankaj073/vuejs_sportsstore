@@ -17,7 +17,11 @@ export default {
             }
         },
         changeQuantity(state, update) {
-            update.line.quantity = update.quantity;
+            console.log(state, update);
+            let line = state.lines.find(line => line == update.line);
+            if (line != null) {
+                line.quantity = update.quantity;
+            }
         },
         removeProduct(state, lineToRemove) {
             let index = state.lines.findIndex(line => line == lineToRemove);
