@@ -31,4 +31,5 @@ Vue JS
 
 ### Questions so far
 1. the mapState, mapGetters, mapMutations all take strings instead of function names like in mapDispatchToProps, mapStateToProps in react makes it easier to do typo and mistakes
-2. so far haven't seen a way for functional/presentational components, every component has to implement mapState, mapGetters andm mapMutations
+2. So it has functional or presentation components you can pass props to, but yet to see if they are as efficient as presentational components, like they can't have their own state.
+3. Need to find out what is this $ character used everywhere $watch, $dirty, $emit, $invalid
