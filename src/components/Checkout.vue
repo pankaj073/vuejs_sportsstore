@@ -90,7 +90,7 @@ export default {
             if(!this.$v.$invalid) {
                 let order = await this.storeOrder(this.order);
                 this.clearCart();
-                this.$router.push("/thanks/${order}")
+                this.$router.push(`/thanks/${order}`)
             }
         }
     }
