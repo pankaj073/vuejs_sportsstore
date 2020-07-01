@@ -14,19 +14,22 @@
             </button>
             <span v-if="currentPage > 4">
                 <button v-on:click="setCurrentPage(1)"
-                    class="btn btn-secondary mx-1">1</button>
+                    class="btn mx-1"
+                    v-bind:class="currentPage == 1 ? 'btn-primary': 'btn-secondary'">1</button>
                 <span class="h4">...</span>
             </span>
             <span class="mx-1">
                 <button v-for="i in pageNumbers" v-bind:key="i"
-                    class="btn btn-secondary" v-bind:class="{ 'btn-primary': i == currentPage }"
+                    class="btn" 
+                    v-bind:class="currentPage == i ? 'btn-primary' : 'btn-secondary'"
                     v-on:click="setCurrentPage(i)">{{ i }}</button>
             </span>
             <span v-if="currentPage <= pageCount - 4">
                 <span class="h4">...</span>
                 <button 
                     v-on:click="setCurrentPage(pageCount)"
-                    class="btn btn-secondary mx-1"
+                    class="btn mx-1"
+                    v-bind:class="currentPage == pageCount ? 'btn-primary' : 'btn-secondary'"
                     >{{ pageCount }}</button>
             </span>
             <button v-bind:disabled="currentPage == pageCount"
@@ -38,7 +41,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
     computed: {
         ...mapState(["currentPage"]),
@@ -56,7 +59,7 @@ export default {
         }
     },
     methods: {
-        ...mapMutations([ "setCurrentPage", "setPageSize" ]),
+        ...mapActions([ "setCurrentPage", "setPageSize" ]),
         changePageSize($event) {
             this.setPageSize(Number($event.target.value));
         }
